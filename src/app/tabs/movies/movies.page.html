@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <h1>Featured Movies</h1>
+  <ion-list lines="none">
+    <!-- Loop through the movies array -->
+    <ion-item
+      *ngFor="let movie of movies"
+      [routerLink]="['../../movie-detail', movie.id]"
+      detail="true"
+      class="movie-item"
+    >
+      <!-- Movie Poster -->
+      <ion-thumbnail slot="start">
+        <img [src]="movie.banner" [alt]="movie.title" />
+      </ion-thumbnail>
+
+      <!-- Movie Text Info -->
+      <ion-label>
+        <h2>{{ movie.title }}</h2>
+        <p class="genre">{{ movie.genre }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
