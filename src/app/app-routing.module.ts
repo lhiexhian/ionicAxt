@@ -13,12 +13,12 @@ const routes: Routes = [
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
   {
-    path: 'movie-detail',
+    path: 'movie-detail/:id',
     loadChildren: () =>
       import('./movie-detail/movie-detail.module').then(
         (m) => m.MovieDetailPageModule
       ),
-  },
+  }
 ];
 
 @NgModule({
