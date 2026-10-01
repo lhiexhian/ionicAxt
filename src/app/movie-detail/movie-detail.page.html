@@ -1,21 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <!-- Standard stack routing tracking backward straight to your catalog view -->
       <ion-back-button defaultHref="/tabs/movies"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ movie?.title || 'Loading Movie...' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" *ngIf="movie">
-  <!-- Big Cinematic Backdrop Hero Image -->
+<ion-content [fullscreen]="true" *ngIf="movie">
   <div class="backdrop-wrapper">
     <img [src]="movie.banner" [alt]="movie.title" />
     <div class="gradient-overlay"></div>
   </div>
 
-  <!-- Header Info Grouping -->
   <div class="movie-header-details">
     <h1 class="movie-title">{{ movie.title }}</h1>
     <div class="genre-badge">{{ movie.genre }}</div>
@@ -23,13 +20,11 @@
 
   <hr class="divider" />
 
-  <!-- Story Synopsis Segment -->
-  <div class="synopsis-section">
+ <div class="synopsis-section">
     <h3>Synopsis</h3>
     <p class="synopsis-text">{{ movie.synopsis }}</p>
   </div>
 
-  <!-- Horizontal Photo Media Gallery Grid -->
   <div class="gallery-section" *ngIf="movie.gallery && movie.gallery.length > 0">
     <h3>Media Gallery</h3>
     <div class="gallery-scroll-container">
