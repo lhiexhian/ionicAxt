@@ -1,13 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>movie-detail</ion-title>
+    <ion-buttons slot="start">
+      <!-- Standard stack routing tracking backward straight to your catalog view -->
+      <ion-back-button defaultHref="/tabs/movies"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ movie?.title || 'Loading Movie...' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">movie-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="movie">
+  <!-- Big Cinematic Backdrop Hero Image -->
+  <div class="backdrop-wrapper">
+    <img [src]="movie.banner" [alt]="movie.title" />
+    <div class="gradient-overlay"></div>
+  </div>
+
+  <!-- Header Info Grouping -->
+  <div class="movie-header-details">
+    <h1 class="movie-title">{{ movie.title }}</h1>
+    <div class="genre-badge">{{ movie.genre }}</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Story Synopsis Segment -->
+  <div class="synopsis-section">
+    <h3>Synopsis</h3>
+    <p class="synopsis-text">{{ movie.synopsis }}</p>
+  </div>
+
+  <!-- Horizontal Photo Media Gallery Grid -->
+  <div class="gallery-section" *ngIf="movie.gallery && movie.gallery.length > 0">
+    <h3>Media Gallery</h3>
+    <div class="gallery-scroll-container">
+      <div class="gallery-item" *ngFor="let photo of movie.gallery">
+        <img [src]="photo" alt="Movie Scene" />
+      </div>
+    </div>
+  </div>
 </ion-content>

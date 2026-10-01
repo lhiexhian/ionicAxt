@@ -85,12 +85,10 @@ export class MovieinfoServices {
     },
   ];
 
-  // Fetch the entire array for the catalog page
   getMovies(): Movie[] {
     return this.movies;
   }
 
-  // Find a specific movie matching an ID parameter
   getMovieById(id: number): Movie | undefined {
     return this.movies.find(movie => movie.id === id);
   }
